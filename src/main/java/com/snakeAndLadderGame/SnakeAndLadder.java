@@ -22,9 +22,13 @@ public class SnakeAndLadder {
 			}
 			else if (playStatus == 2) {
 				player1Position -= dieValue;
-				System.out.println("Player fell by " + player1Position);
+				
+				if (player1Position < 0) {
+					player1Position = 0;
+				}
+				
+				System.out.println("Player fell to " + player1Position);
 			}
-			
 			
 		}
 		
