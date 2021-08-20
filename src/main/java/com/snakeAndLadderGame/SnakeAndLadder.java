@@ -5,12 +5,13 @@ public class SnakeAndLadder {
 	public static void main(String args[]) {
 		
 		int player1Position = 0;
+		int numberOfDieRolls = 0;
 		
 		while (player1Position != 100) {
 			int playStatus =  (int) (Math.floor(Math.random()*10) % 3);
 			int dieValue = (int) (Math.floor(Math.random()*10) % 6) + 1;
 			
-			System.out.println("The die value is " + dieValue);
+//			System.out.println("The die value is " + dieValue);
 			
 			if (playStatus == 0) {
 				System.out.println("Player remained at " + player1Position);
@@ -37,7 +38,11 @@ public class SnakeAndLadder {
 				System.out.println("Player fell to " + player1Position);
 			}
 			
+			numberOfDieRolls++;
+			
 		}
+		
+		System.out.println("The dies are rolled " + numberOfDieRolls + " times");
 		
 	}
 
