@@ -6,19 +6,26 @@ public class SnakeAndLadder {
 		
 		int player1Position = 0;
 		
-		int dieValue = (int) (Math.floor(Math.random()*10) % 6) + 1;
-		
-		System.out.println("The die value is " + dieValue);
-		
-		while (player1Position <= 100) {
+		while (player1Position != 100) {
 			int playStatus =  (int) (Math.floor(Math.random()*10) % 3);
+			int dieValue = (int) (Math.floor(Math.random()*10) % 6) + 1;
+			
+			System.out.println("The die value is " + dieValue);
 			
 			if (playStatus == 0) {
 				System.out.println("Player remained at " + player1Position);
 			}
 			else if (playStatus == 1) {
 				player1Position += dieValue;
-				System.out.println("Player moved to " + player1Position);
+				
+				if (player1Position > 100) {
+					player1Position -= dieValue;
+					System.out.println("Player remained at " + player1Position);
+				}
+				else {
+					System.out.println("Player moved to " + player1Position);
+				}
+				
 			}
 			else if (playStatus == 2) {
 				player1Position -= dieValue;
